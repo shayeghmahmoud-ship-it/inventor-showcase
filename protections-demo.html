@@ -202,6 +202,12 @@
   .contact-line { font-size:14px; color:#344054; }
   .contact-line a { color:#0a66c2; text-decoration:none; font-weight:700; }
   .contact-line a:hover { text-decoration:underline; }
+  /* Credibility surface (holding.html): the two registered documents, as issued. */
+  .doc-grid { display:grid; grid-template-columns: 1fr 1fr; gap:22px; margin-top:26px; }
+  @media (max-width: 760px) { .doc-grid { grid-template-columns: 1fr; } }
+  .doc-card { background:#fff; border:1px solid #eae5d8; border-radius:18px; padding:18px; box-shadow: 0 10px 30px rgba(16,24,40,.06); }
+  .doc-card img { width:100%; height:auto; border:1px solid #eaecf0; border-radius:8px; display:block; }
+  .doc-card figcaption { margin-top:12px; font-size:13.5px; color:#475467; line-height:1.55; }
   .sponsor-line a { color:#0a66c2; text-decoration:none; }
   .sponsor-line a:hover { text-decoration:underline; }
   @media (max-width: 760px) { .offer-head { grid-template-columns: 1fr; } .obj-monitor-lg { justify-self:center; } }
@@ -241,7 +247,7 @@
 <div class="wrap">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
   <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a><a href="how-it-works.html">How it works</a><a href="ownership.html">Ownership</a><a href="documents.html">Your documents</a><a class="here" href="profile-demo.html">Experience — Demo</a><img class="flag-corner" src="flag-usa.webp" alt=""></div>
-  <div class="id-strip"><span class="id-idblock"><!--ID-OWNER-SLOT--><!--ID-OPERATOR-SLOT--></span><!--ID-REG-SLOT--></div>
+  <div class="id-strip filled"><span class="id-idblock"><span>Sponsor: <a href="https://gatenations.com">Gate Nations Holding — United States</a>.</span><span>This showcase is presented under the holding&rsquo;s sponsorship; it is operated by Gate Nations LLC.</span></span><!--ID-REG-SLOT--></div>
 
   <div class="demo-banner"><span class="demo-tag">DEMO</span><span>DEMONSTRATION — SAMPLE ONLY. This page states, in plain language, the protections the Inventor Showcase agreement and disclosure actually give — and the one limit they state openly.</span></div>
   <div class="demo-nav"><a href="profile-demo.html">Inventor profile</a><a href="present-demo.html">Present your product</a><a class="here" href="protections-demo.html">Protections</a></div>
