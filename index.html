@@ -5,52 +5,104 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inventor Showcase — Gate Nations LLC</title>
 <style>
-  body { margin:0; font-family: Georgia, 'Times New Roman', serif; background:#101418; color:#e8e4da; }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 24px 64px; }
-  .staging-banner { background:#5c4a12; color:#ffe9a8; text-align:center; padding:12px 16px; font-family: Arial, sans-serif; font-size:14px; letter-spacing:1px; border-radius:6px; }
-  .nav { font-family: Arial, sans-serif; font-size:14px; letter-spacing:1px; margin-top:18px; }
-  .nav a { color:#b9c2cc; text-decoration:none; margin-right:22px; }
-  .nav a.here { color:#d8c98a; }
-  .platform { font-family: Arial, sans-serif; color:#b9c2cc; font-size:14px; letter-spacing:2px; margin-top:28px; }
-  h1 { font-size: 38px; line-height:1.15; margin: 8px 0 4px; color:#f5f1e6; }
-  .sub { color:#c9cfd6; font-size:17px; margin-bottom: 24px; line-height:1.55; }
-  .card { background:#171d24; border:1px solid #2c353f; border-radius:8px; padding:22px 24px; margin-top:22px; }
-  .card h2 { font-size:20px; margin:0 0 12px; color:#d8c98a; font-family: Arial, sans-serif; letter-spacing:1px; }
-  .card p, .card li { font-size:16.5px; line-height:1.65; color:#e8e4da; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background:#f7f5ef; color:#1d2939; }
+  .ribbon { height:5px; background: linear-gradient(90deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5); }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 26px 20px 64px; }
+  .staging-banner { background:#fffaeb; color:#b54708; border:1px solid #fedf89; text-align:center; padding:11px 16px; font-size:13.5px; font-weight:600; letter-spacing:.6px; border-radius:999px; }
+  .nav { display:flex; align-items:center; gap:8px; margin-top:20px; flex-wrap:wrap; }
+  .brand { font-weight:900; letter-spacing:.4px; color:#101828; font-size:16px; margin-right:auto; }
+  .brand span { color:#d62976; }
+  .nav a { color:#344054; text-decoration:none; font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:999px; background:#ffffff; border:1px solid #eae5d8; }
+  .nav a.here { color:#ffffff; background:#101828; border-color:#101828; }
+  .badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:34px; }
+  .pill { font-size:12px; font-weight:800; letter-spacing:1.2px; padding:7px 13px; border-radius:999px; }
+  .pill.blue { background:#eaf2fb; color:#0a66c2; }
+  .pill.line { background:#ffffff; color:#344054; border:1.5px solid #d0d5dd; }
+  .pill.grad { background: linear-gradient(135deg,#fa7e1e,#d62976); color:#ffffff; }
+  h1 { font-size:46px; line-height:1.08; margin:16px 0 10px; color:#101828; font-weight:900; letter-spacing:-.5px; }
+  h1 .grad { background: linear-gradient(90deg,#fa7e1e,#d62976,#962fbf); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { color:#475467; font-size:17.5px; line-height:1.6; margin: 6px 0 0; max-width: 760px; }
+  .tiles { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:26px; }
+  @media (max-width: 680px) { .tiles { grid-template-columns: 1fr; } h1 { font-size: 36px; } }
+  .tile { background:#ffffff; border:1.5px solid #eae5d8; border-radius:18px; padding:22px 22px 18px; box-shadow: 0 8px 30px rgba(16,24,40,.06); }
+  .tile.hot { border-color:#fb7701; box-shadow: 0 12px 34px rgba(251,119,1,.18); position:relative; }
+  .tile .tag { position:absolute; top:-12px; right:18px; background:#fb7701; color:#fff; font-size:11px; font-weight:800; letter-spacing:1px; padding:5px 11px; border-radius:999px; }
+  .tile .pname { font-size:13px; font-weight:800; letter-spacing:1.4px; color:#667085; }
+  .tile.hot .pname { color:#dc6803; }
+  .tile .price { font-size:52px; font-weight:900; color:#101828; line-height:1.05; margin: 4px 0 8px; }
+  .tile .price small { font-size:17px; font-weight:700; color:#667085; }
+  .tile p { font-size:14.5px; line-height:1.6; color:#475467; margin:0; }
+  .trust { text-align:center; margin-top:24px; font-size:16.5px; color:#101828; font-weight:600; }
+  .trust .mark { color:#079455; font-weight:900; }
+  .cta-row { text-align:center; margin-top:18px; }
+  .cta { display:inline-block; background: linear-gradient(135deg,#fa7e1e,#d62976); color:#ffffff; font-weight:800; font-size:17px; padding:16px 34px; border-radius:999px; text-decoration:none; box-shadow: 0 10px 30px rgba(214,41,118,.35); }
+  .highlights { display:flex; justify-content:space-between; gap:10px; margin-top:36px; flex-wrap:wrap; }
+  .hl { text-align:center; width: 150px; }
+  .hl .ring { width:76px; height:76px; margin:0 auto 9px; border-radius:50%; padding:3px; background: linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5); }
+  .hl .core { background:#ffffff; border-radius:50%; width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:900; color:#101828; }
+  .hl .lab { font-size:13px; font-weight:700; color:#344054; line-height:1.35; }
+  .card { background:#ffffff; border:1.5px solid #eae5d8; border-radius:18px; padding:24px 26px; margin-top:22px; box-shadow: 0 8px 30px rgba(16,24,40,.05); }
+  .card h2 { font-size:15px; margin:0 0 12px; color:#0a66c2; letter-spacing:1.6px; font-weight:800; }
+  .card p, .card li { font-size:16.5px; line-height:1.68; color:#1d2939; }
   .card ol, .card ul { margin: 8px 0 8px 22px; padding: 0; }
   .card li { margin-bottom: 10px; }
-  .card p.quote { border-left: 3px solid #d8c98a; padding-left: 16px; margin-left: 4px; }
-  .warn { background:#2a2118; border:1px solid #6b5320; }
-  .warn h2 { color:#e8b64c; }
-  .btn { display:inline-block; background:#39434e; color:#cfd6dd; font-family: Arial, sans-serif; padding:12px 22px; border-radius:6px; font-size:15px; margin-top:6px; text-decoration:none; }
-  .foot { color:#8b96a1; font-size:13.5px; font-family: Arial, sans-serif; margin-top:34px; line-height:1.7; }
-  a { color:#d8c98a; }
+  .card p.quote { border-left: 4px solid #d62976; padding-left: 16px; margin-left: 4px; }
+  .alert { background:#fffaeb; border-color:#fedf89; }
+  .alert h2 { color:#b54708; }
+  .product { padding: 0; overflow:hidden; }
+  .product .cover { height: 120px; background: linear-gradient(120deg,#0a66c2,#962fbf 55%,#d62976); position:relative; }
+  .product .cover .cat { position:absolute; left:22px; bottom:16px; background:rgba(255,255,255,.92); color:#101828; font-size:12px; font-weight:800; letter-spacing:1.2px; padding:6px 12px; border-radius:999px; }
+  .product .in { padding: 22px 26px 24px; }
+  .product h3 { font-size:27px; font-weight:900; color:#101828; margin:0 0 6px; }
+  .product .inst { color:#475467; font-size:15.5px; margin-bottom:12px; }
+  .chips { display:flex; gap:8px; flex-wrap:wrap; margin: 10px 0 16px; }
+  .chip { background:#f2f4f7; color:#344054; font-size:13px; font-weight:700; padding:6px 12px; border-radius:999px; }
+  .btn2 { display:inline-block; background:#101828; color:#ffffff; font-weight:700; padding:12px 22px; border-radius:999px; font-size:15px; text-decoration:none; }
+  .foot { color:#667085; font-size:13.5px; margin-top:34px; line-height:1.7; }
+  a { color:#0a66c2; }
 </style>
 </head>
 <body>
+<div class="ribbon"></div>
 <div class="wrap">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
-  <div class="nav"><a class="here" href="index.html">HOME</a><a href="sample.html">SAMPLE LISTING</a><a href="offer.html">OFFER & DISCLOSURE</a></div>
+  <div class="nav"><div class="brand">INVENTOR <span>SHOWCASE</span></div><a class="here" href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a></div>
 
-  <div class="platform">GATE NATIONS LLC · INVENTOR SHOWCASE</div>
-  <h1>A showcase built only for granted-patent inventions.</h1>
+  <div class="badges"><span class="pill blue">GATE NATIONS LLC</span><span class="pill line">GRANTED PATENTS ONLY</span><span class="pill grad">FIRST PUBLICATION CATALOG</span></div>
+  <h1>A showcase built only for <span class="grad">granted-patent</span> inventions.</h1>
   <div class="sub">You hold a granted patent. Gate Nations LLC, a United States company, is opening the founding registration for its Inventor Showcase: a showcase built only for granted-patent inventions, published in a first catalog, with a serial-numbered, dated registry entry for every registered invention, and a closed room where identity- and capital-verified investors may request contact. Contact opens only when a verified investor asks — never the reverse.</div>
-  <div class="card warn">
+  <div class="tiles">
+    <div class="tile hot"><div class="tag">PARTNER PATH</div><div class="pname">PARTNER PATH — TOTAL</div><div class="price">$15</div><p><strong>Partner path — $15 total:</strong> a per-invention registration fee of $10 plus the first month of the Partner subscription at $5/month. The Partner path is cheaper because it carries a signed agreement, stated in full and in plain language in the disclosure below.</p></div>
+    <div class="tile"><div class="pname">FULL PATH — TOTAL</div><div class="price">$110</div><p><strong>Full path — $110 total:</strong> the same registration fee of $10 plus one year of the Full subscription at $100/year. The Full path carries no percentage agreement, ever.</p></div>
+  </div>
+  <div class="trust"><span class="mark">✓</span> If your invention's granted patent or proof-of-function cannot be verified, your payment is refunded in full and no listing is made.</div>
+  <div class="cta-row"><a class="cta" href="offer.html">Read the Offer &amp; Disclosure</a></div>
+  <div class="highlights">
+    <div class="hl"><div class="ring"><div class="core">✓</div></div><div class="lab">Patent &amp; proof-of-function verification</div></div>
+    <div class="hl"><div class="ring"><div class="core">№</div></div><div class="lab">Serial-numbered, dated registry entry</div></div>
+    <div class="hl"><div class="ring"><div class="core">◈</div></div><div class="lab">Closed room — verified investors only</div></div>
+    <div class="hl"><div class="ring"><div class="core">§</div></div><div class="lab">Full disclosure before any payment</div></div>
+  </div>
+  <div class="card alert">
     <h2>READ THIS FIRST — THE PLATFORM IS NOT BUILT YET</h2>
       <p><strong>Read this first: the platform is not built yet.</strong> What is open today is founding registration for the first publication catalog. The catalog is the first published edition of the showcase. Your founding place is a reserved, numbered place in that first catalog for one granted-patent invention. The first catalog will open on or before [DATE PENDING MAHMOUD'S DECISION: 1 March 2027]. <strong>If the first catalog does not open by that date, your payment is refunded in full.</strong></p>
   </div>
   <div class="card">
     <h2>WHAT FOUNDING REGISTRATION BUYS, EXACTLY</h2>
       <ol><li>Verification of your granted patent and your proof-of-function documents — these two checks, and nothing beyond them, are what "verified" means here.</li><li>A showcase listing in the first catalog: a technical profile of the invention, your photos and video, under a platform identity. Your legal identity stays with us and is shown to a verified investor only at deal stage, inside the room.</li><li>A serial-numbered, timestamped registry record of your listing.</li></ol>
-      <p>Price, in the open — one payment, two paths, your choice:</p>
-      <ul><li><strong>Partner path — $15 total:</strong> a per-invention registration fee of $10 plus the first month of the Partner subscription at $5/month. The Partner path is cheaper because it carries a signed agreement, stated in full and in plain language in the disclosure below.</li><li><strong>Full path — $110 total:</strong> the same registration fee of $10 plus one year of the Full subscription at $100/year. The Full path carries no percentage agreement, ever.</li></ul>
       <p>What we do NOT promise: no investor, license, sale, or income is promised or implied. Most registered inventions will not be commercialized. Please read the disclosure below before paying anything. If your invention's granted patent or proof-of-function cannot be verified, your payment is refunded in full and no listing is made.</p>
       <p>Payment is made only through the company's own payment link, which accompanies this offer when registration opens for your cohort. We never ask for payment by any other route.</p>
   </div>
-  <div class="card">
-    <h2>SEE THE SAMPLE</h2>
-    <p>The tangible sample of a founding-place listing: one complete showcase page for a real invention, built by hand from the official public ITEX 2026 exhibition catalogue. A model unit — not a live listing; nothing on it is for sale.</p>
-    <p><a class="btn" href="sample.html">View the sample listing — Polybag Soil Rotor V2</a></p>
+  <div class="card product">
+    <div class="cover"><span class="cat">SAMPLE LISTING — MODEL UNIT</span></div>
+    <div class="in">
+      <h3>Polybag Soil Rotor V2</h3>
+      <div class="inst">JTM Advanced Technology College (ADTEC JTM) · ITEX 2026, Malaysia</div>
+      <p style="font-size:16px;line-height:1.6;color:#475467;margin:0">The tangible sample of a founding-place listing: one complete showcase page for a real invention, built by hand from the official public ITEX 2026 exhibition catalogue. A model unit — not a live listing; nothing on it is for sale, and the invention on it is not a verified listing.</p>
+      <div class="chips"><span class="chip">4-in-1 soil tilling tool</span><span class="chip">Fertigation farming</span><span class="chip">Agriculture</span><span class="chip">Public source data only</span></div>
+      <a class="btn2" href="sample.html">View the sample listing</a>
+    </div>
   </div>
   <div class="card">
     <h2>DISCLOSURE — THE COMPLETE TEXT</h2>
