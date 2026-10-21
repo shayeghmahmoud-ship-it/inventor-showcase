@@ -114,16 +114,20 @@
   .sub { font-size: 19px; }
   .card { margin-top: 28px; }
   .tile .price { font-size: 66px; }
-  /* Pass 3 (2026-10-21): object-led anatomy — generated 3D objects lead. */
-  .stage { position:relative; height:330px; margin-top:4px; }
-  .stage .obj { position:absolute; pointer-events:none; }
-  .o-brain { height:238px; left:50%; margin-left:-104px; top:40px; z-index:2; animation: bob 5.5s ease-in-out infinite; filter: drop-shadow(0 22px 26px rgba(180,130,20,.35)); }
-  .o-gears { width:252px; left:2%; top:66px; z-index:1; animation: sway 10s ease-in-out infinite; filter: drop-shadow(0 16px 20px rgba(16,24,40,.28)); }
-  .o-wrench { width:238px; right:1%; top:92px; z-index:1; animation: floaty 8s ease-in-out infinite; filter: drop-shadow(0 16px 20px rgba(16,24,40,.25)); }
-  .o-bulb { height:118px; right:19%; top:0; z-index:1; animation: bob 6.5s ease-in-out infinite; filter: drop-shadow(0 0 22px rgba(245,180,60,.55)); }
-  .o-arm { width:196px; left:11%; top:0; z-index:1; animation: floaty 9s ease-in-out infinite reverse; filter: drop-shadow(0 12px 16px rgba(16,24,40,.22)); }
   @keyframes sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
-  @media (max-width: 760px) { .stage { height:248px; } .o-brain { height:168px; margin-left:-73px; top:32px; } .o-gears { width:148px; top:58px; } .o-wrench { width:138px; top:78px; } .o-bulb { height:76px; right:7%; } .o-arm { width:118px; left:1%; } }
+  /* Pass 4 (2026-10-21): objects return to brand atmosphere — an industries band under the hero copy; the copy leads again. */
+  .worlds { display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-end; gap:12px 26px; margin:28px auto 2px; max-width:860px; }
+  .worlds img { height:96px; width:auto; pointer-events:none; animation: bob 6s ease-in-out infinite; filter: drop-shadow(0 10px 14px rgba(16,24,40,.20)); }
+  .worlds img:nth-child(1) { height:108px; animation-delay:-.5s; }
+  .worlds img:nth-child(2) { height:100px; animation-delay:-1.6s; }
+  .worlds img:nth-child(3) { height:88px; animation-delay:-2.7s; }
+  .worlds img:nth-child(4) { height:92px; animation-delay:-.9s; }
+  .worlds img:nth-child(6) { height:106px; animation-delay:-3.4s; }
+  .worlds img:nth-child(7) { height:98px; animation-delay:-1.1s; }
+  .worlds img:nth-child(8) { height:90px; animation-delay:-2.2s; }
+  .worlds img:nth-child(9) { height:94px; animation-delay:-4.1s; }
+  .worlds .wv-brain { height:116px; animation-delay:-.2s; filter: drop-shadow(0 12px 16px rgba(180,130,20,.35)); }
+  @media (max-width: 760px) { .worlds { gap:8px 16px; } .worlds img { height:58px; } .worlds img:nth-child(1) { height:64px; } .worlds img:nth-child(2) { height:60px; } .worlds img:nth-child(3) { height:54px; } .worlds img:nth-child(4) { height:56px; } .worlds img:nth-child(6) { height:63px; } .worlds img:nth-child(7) { height:59px; } .worlds img:nth-child(8) { height:55px; } .worlds img:nth-child(9) { height:57px; } .worlds .wv-brain { height:68px; } }
   .hero-copy { text-align:center; margin-top:2px; }
   .hero-copy .badges { justify-content:center; }
   .hero-copy .sub { margin:0 auto; }
@@ -177,12 +181,12 @@
   <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a class="here" href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a></div>
 
   <div class="hero"><div class="hero-art" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span></div>
-  <div class="stage" aria-hidden="true"><img class="obj o-arm" src="obj-arm.webp" alt=""><img class="obj o-gears" src="obj-gears.webp" alt=""><img class="obj o-brain" src="logo-brain.png" alt=""><img class="obj o-wrench" src="obj-wrench.webp" alt=""><img class="obj o-bulb" src="obj-bulb.webp" alt=""></div>
   <div class="hero-copy">
   <div class="badges"><span class="pill blue">GATE NATIONS LLC</span><span class="pill line">GRANTED PATENTS ONLY</span><span class="pill grad">FIRST PUBLICATION CATALOG</span></div>
   <h1>A showcase built only for <span class="grad">granted-patent</span> inventions.</h1>
   <div class="sub">You hold a granted patent. Gate Nations LLC, a United States company, is opening the founding registration for its Inventor Showcase: a showcase built only for granted-patent inventions, published in a first catalog, with a serial-numbered, dated registry entry for every registered invention, and a closed room where identity- and capital-verified investors may request contact. Contact opens only when a verified investor asks — never the reverse.</div>
   </div>
+  <div class="worlds" aria-hidden="true"><img src="obj-gears.webp" alt=""><img src="obj-flask.webp" alt=""><img src="obj-monitor.webp" alt=""><img src="obj-bulb.webp" alt=""><img class="wv-brain" src="logo-brain.png" alt=""><img src="obj-microscope.webp" alt=""><img src="obj-sprout.webp" alt=""><img src="obj-arm.webp" alt=""><img src="obj-wrench.webp" alt=""></div>
   <div class="band band-commerce">
   <div class="tiles">
     <div class="tile hot"><div class="tag">PARTNER PATH</div><div class="pname">PARTNER PATH — TOTAL</div><div class="price">$15</div><p><strong>Partner path — $15 total:</strong> a per-invention registration fee of $10 plus the first month of the Partner subscription at $5/month. The Partner path is cheaper because it carries a signed agreement, stated in full and in plain language in the disclosure below.</p></div>
