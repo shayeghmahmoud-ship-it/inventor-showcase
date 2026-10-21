@@ -15,6 +15,18 @@
   .brand span { color:#d62976; }
   .nav a { color:#344054; text-decoration:none; font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:999px; background:#ffffff; border:1px solid #eae5d8; }
   .nav a.here { color:#ffffff; background:#101828; border-color:#101828; }
+  /* Owner identity strip — SHELL (desk, 2026-10-21). Seats at the
+     moment of entry, beside the flag. Its items (owner/sponsor,
+     operator, registered address, registration number, official
+     phone + message-only note) arrive verified from the company
+     record book via the desk; nothing seats from guesswork. The
+     strip stays invisible while empty and appears fully styled
+     the moment its verified items land. */
+  .id-strip { display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; margin-top:14px; padding:10px 16px; background:#fff; border:1px solid #eae5d8; border-radius:12px; font-size:13.5px; color:#344054; }
+  .id-strip:empty { display:none; }
+  .id-strip b { color:#101828; }
+  .id-strip a { color:#0a66c2; text-decoration:none; font-weight:700; }
+  .id-note { color:#667085; font-size:12.5px; }
   .badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:34px; }
   .pill { font-size:12px; font-weight:800; letter-spacing:1.2px; padding:7px 13px; border-radius:999px; }
   .pill.blue { background:#eaf2fb; color:#0a66c2; }
@@ -217,6 +229,7 @@
 <div class="wrap">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
   <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a class="here" href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a><a href="how-it-works.html">How it works</a><a href="ownership.html">Ownership</a><a href="documents.html">Your documents</a><a href="profile-demo.html">Experience — Demo</a><img class="flag-corner" src="flag-usa.webp" alt=""></div>
+  <div class="id-strip"><!--ID-OWNER-SLOT--><!--ID-OPERATOR-SLOT--><!--ID-CONTACT-SLOT--></div>
 
   <div class="hero"><div class="hero-art" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span></div>
   <div class="hero-copy">
