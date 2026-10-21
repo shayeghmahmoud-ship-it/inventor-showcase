@@ -274,6 +274,18 @@
   .auth-name { font-size:15px; font-weight:800; letter-spacing:.22em; color:#0a66c2; }
   .auth-sub { font-size:30px; font-weight:800; letter-spacing:-.01em; margin-top:10px; line-height:1.25; }
   .sec-lead { font-weight:700; font-size:16.5px; margin-bottom:8px; }
+  /* Registration structure (investor.html) — field seats only:
+     no form, no inputs, no submission until the mechanism build
+     and the approval path land. */
+  .reg-group { margin-top:18px; }
+  .reg-group h3 { display:flex; align-items:center; gap:10px; font-size:16px; }
+  .gate-chip { background:#0a66c2; color:#fff; font-size:12px; font-weight:800; border-radius:999px; padding:3px 10px; letter-spacing:.06em; }
+  .field-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin-top:12px; }
+  .field { background:#fff; border:1px solid #eee7db; border-radius:12px; padding:12px 14px; }
+  .field .flabel { font-size:13px; font-weight:700; color:#344054; }
+  .field .fseat { margin-top:8px; height:34px; border:1.5px dashed #d0d5dd; border-radius:8px; background:#fcfcfd; }
+  .field.wide { grid-column: 1 / -1; }
+  .field.wide .fseat { height:56px; }
 </style>
 </head>
 <body>
@@ -297,6 +309,51 @@
     <div class="fstep"><div class="num">3</div><h3>On a closed contract only</h3><p>The percentage is disclosed on the closed contract, and nowhere before it.</p></div>
   </div>
   <div class="bracket-tile">Percentage: [PERCENTAGE FIXED — SEATING AWAITS THE 5/7 RELATION CLAUSE]</div>
+  <!--REGISTRATION-STRUCTURE: the introduction option's application intake (funnel steps 1–2), a SEPARATE seat from the Showcase listing registration — its separation copy is destination text and seats through the Persian-approval path (slot below). Field seats only: no form, no inputs, no submission, no automation claim, until the mechanism build (desk spec to come) and the approvals land. Applicant data/documents will run under the Submitted Documents Rule + Five Gates (checklist section).-->
+  <div class="card">
+    <h2>Introduction option — application</h2>
+    <!--REG-SEPARATION-COPY-SLOT-->
+    <div class="reg-group"><h3><span class="gate-chip">PROFILE</span> Applicant &amp; invention</h3>
+      <div class="field-grid">
+        <div class="field"><div class="flabel">Applicant name</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">Invention title</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">Sector</div><div class="fseat"></div></div>
+      </div>
+    </div>
+    <div class="reg-group"><h3><span class="gate-chip">G1</span> Working prototype &amp; validation</h3>
+      <div class="field-grid">
+        <div class="field"><div class="flabel">Prototype status</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">Validation evidence — pilot, beta users, customers, or revenue</div><div class="fseat"></div></div>
+      </div>
+    </div>
+    <div class="reg-group"><h3><span class="gate-chip">G2</span> IP position &amp; ownership</h3>
+      <div class="field-grid">
+        <div class="field"><div class="flabel">Patent status &amp; number</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">Ownership &amp; contributor assignments</div><div class="fseat"></div></div>
+        <div class="field wide"><div class="flabel">Documents — copies only, under the Submitted Documents Rule</div><div class="fseat"></div></div>
+      </div>
+    </div>
+    <div class="reg-group"><h3><span class="gate-chip">G3</span> Investable structure</h3>
+      <div class="field-grid">
+        <div class="field"><div class="flabel">Company — registered entity &amp; country</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">US entity, or the concrete path to one</div><div class="fseat"></div></div>
+      </div>
+    </div>
+    <div class="reg-group"><h3><span class="gate-chip">G4</span> Market &amp; revenue path</h3>
+      <div class="field-grid">
+        <div class="field"><div class="flabel">Addressable market</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">Path to revenue &amp; timeframe</div><div class="fseat"></div></div>
+      </div>
+    </div>
+    <div class="reg-group"><h3><span class="gate-chip">G5</span> Business &amp; team</h3>
+      <div class="field-grid">
+        <div class="field"><div class="flabel">Business model</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">Team &amp; committed operators</div><div class="fseat"></div></div>
+        <div class="field"><div class="flabel">Readiness — ownership sharing &amp; investor governance</div><div class="fseat"></div></div>
+      </div>
+    </div>
+    <!--REG-SUBMIT-SEAT-->
+  </div>
 
   <div class="site-foot"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><!--SPONSOR-SLOT--><div class="contact-line">Contact is through the holding&rsquo;s website: <a href="https://gatenations.com">gatenations.com</a></div></div>
 </div>

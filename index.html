@@ -274,6 +274,18 @@
   .auth-name { font-size:15px; font-weight:800; letter-spacing:.22em; color:#0a66c2; }
   .auth-sub { font-size:30px; font-weight:800; letter-spacing:-.01em; margin-top:10px; line-height:1.25; }
   .sec-lead { font-weight:700; font-size:16.5px; margin-bottom:8px; }
+  /* Registration structure (investor.html) — field seats only:
+     no form, no inputs, no submission until the mechanism build
+     and the approval path land. */
+  .reg-group { margin-top:18px; }
+  .reg-group h3 { display:flex; align-items:center; gap:10px; font-size:16px; }
+  .gate-chip { background:#0a66c2; color:#fff; font-size:12px; font-weight:800; border-radius:999px; padding:3px 10px; letter-spacing:.06em; }
+  .field-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin-top:12px; }
+  .field { background:#fff; border:1px solid #eee7db; border-radius:12px; padding:12px 14px; }
+  .field .flabel { font-size:13px; font-weight:700; color:#344054; }
+  .field .fseat { margin-top:8px; height:34px; border:1.5px dashed #d0d5dd; border-radius:8px; background:#fcfcfd; }
+  .field.wide { grid-column: 1 / -1; }
+  .field.wide .fseat { height:56px; }
 </style>
 </head>
 <body>
