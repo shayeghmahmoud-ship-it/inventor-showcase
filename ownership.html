@@ -15,13 +15,17 @@
   .brand span { color:#d62976; }
   .nav a { color:#344054; text-decoration:none; font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:999px; background:#ffffff; border:1px solid #eae5d8; }
   .nav a.here { color:#ffffff; background:#101828; border-color:#101828; }
-  /* Owner identity strip — SHELL (desk, 2026-10-21). Seats at the
-     moment of entry, beside the flag. Its items (owner/sponsor,
-     operator, registered address, registration number, official
-     phone + message-only note) arrive verified from the company
-     record book via the desk; nothing seats from guesswork. The
-     strip stays invisible while empty and appears fully styled
-     the moment its verified items land. */
+  /* Owner identity strip — SHELL (desk, 2026-10-21; composition
+     amended by Mahmoud's direct word, 14:17 CDT, cancelling the
+     earlier form). The strip carries ONLY: the owner/sponsor (the
+     American holding), the registered operator (Gate Nations LLC),
+     and the company registration number. NO address and NO phone
+     seat anywhere on the Showcase — address, phone, email and
+     socials live only on the holding's website, reached by the
+     contact link ("one house, one door"). The items arrive verified
+     from the company record book via the desk; nothing seats from
+     guesswork. The strip is display:none until activation adds its
+     .filled class with the verified items. */
   .id-strip { display:none; }
   .id-strip.filled { display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; margin-top:14px; padding:10px 16px; background:#fff; border:1px solid #eae5d8; border-radius:12px; font-size:13.5px; color:#344054; }
   .id-strip b { color:#101828; }
@@ -237,7 +241,7 @@
 <div class="wrap">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
   <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a><a href="how-it-works.html">How it works</a><a class="here" href="ownership.html">Ownership</a><a href="documents.html">Your documents</a><a href="profile-demo.html">Experience — Demo</a><img class="flag-corner" src="flag-usa.webp" alt=""></div>
-  <div class="id-strip"><span class="id-idblock"><!--ID-OWNER-SLOT--><!--ID-OPERATOR-SLOT--></span><!--ID-CONTACT-SLOT--></div>
+  <div class="id-strip"><span class="id-idblock"><!--ID-OWNER-SLOT--><!--ID-OPERATOR-SLOT--></span><!--ID-REG-SLOT--></div>
 
   <h1 class="demo-h">OWNERSHIP <span class="grad">— what stays yours, what we never take, what we receive</span></h1>
   <div class="card note-card">
