@@ -202,12 +202,16 @@
   .contact-line { font-size:14px; color:#344054; }
   .contact-line a { color:#0a66c2; text-decoration:none; font-weight:700; }
   .contact-line a:hover { text-decoration:underline; }
-  /* Credibility surface (holding.html): the two registered documents, as issued. */
+  /* Credibility surface (holding.html): intro lead + the two registered documents, as issued. */
+  .lead { font-size:17px; line-height:1.65; color:#344054; max-width:780px; margin-top:26px; }
   .doc-grid { display:grid; grid-template-columns: 1fr 1fr; gap:22px; margin-top:26px; }
   @media (max-width: 760px) { .doc-grid { grid-template-columns: 1fr; } }
   .doc-card { background:#fff; border:1px solid #eae5d8; border-radius:18px; padding:18px; box-shadow: 0 10px 30px rgba(16,24,40,.06); }
   .doc-card img { width:100%; height:auto; border:1px solid #eaecf0; border-radius:8px; display:block; }
   .doc-card figcaption { margin-top:12px; font-size:13.5px; color:#475467; line-height:1.55; }
+  /* Connective prose (pen chain, released 2026-10-21). */
+  .eyebrow { font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#0a66c2; margin-top:30px; }
+  .frame-line { font-size:16.5px; line-height:1.6; color:#475467; max-width:780px; margin-top:8px; }
   .sponsor-line a { color:#0a66c2; text-decoration:none; }
   .sponsor-line a:hover { text-decoration:underline; }
   @media (max-width: 760px) { .offer-head { grid-template-columns: 1fr; } .obj-monitor-lg { justify-self:center; } }
@@ -249,15 +253,15 @@
   <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a><a href="how-it-works.html">How it works</a><a href="ownership.html">Ownership</a><a href="documents.html">Your documents</a><a href="profile-demo.html">Experience — Demo</a><img class="flag-corner" src="flag-usa.webp" alt=""></div>
   <div class="id-strip filled"><span class="id-idblock"><span>Sponsor: <a href="https://gatenations.com">Gate Nations Holding — United States</a>.</span><span>This showcase is presented under the holding&rsquo;s sponsorship; it is operated by Gate Nations LLC.</span></span><!--ID-REGISTRATION-SLOT--></div>
 
-  <!--INTRO-SLOT: the surface's intro text seats here, verbatim from the pen chain.-->
+  <p class="lead">This showcase stands on a simple foundation: an American company, under American law, backed by its own holding. The documents below are part of the founder's record — official correspondence and greetings, shown exactly as they were received.</p>
   <div class="doc-grid">
     <figure class="doc-card">
       <img src="doc-white-house-letter.webp" alt="">
-      <figcaption><!--CAPTION-SLOT: White House letter caption, verbatim.--></figcaption>
+      <figcaption>Letter from the White House to the company's founder, July 17, 2025 — a signed thank-you for sharing his idea, shown as received.</figcaption>
     </figure>
     <figure class="doc-card">
       <img src="doc-governor-greeting.webp" alt="">
-      <figcaption><!--CAPTION-SLOT: Governor greeting caption, verbatim.--></figcaption>
+      <figcaption>Greeting letter from the Governor of Mississippi, October 20, 2026, congratulating the Gate Nations LLC team on the company's fourth anniversary, shown as issued.</figcaption>
     </figure>
   </div>
 
