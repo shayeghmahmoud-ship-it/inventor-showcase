@@ -114,16 +114,31 @@
   .sub { font-size: 19px; }
   .card { margin-top: 28px; }
   .tile .price { font-size: 66px; }
-  .hero-grid { display:grid; grid-template-columns: 1.25fr .95fr; gap:30px; align-items:center; margin-top:24px; }
-  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
-  .hero-visual { position:relative; border-radius:26px; padding:26px 20px 8px; background: linear-gradient(160deg,#16233f,#101828 55%,#33124d); box-shadow: 0 24px 50px rgba(16,24,40,.28); overflow:hidden; animation: rise .8s cubic-bezier(.2,.7,.2,1) .18s both; }
-  .hero-visual::after { content:""; position:absolute; top:0; bottom:0; width:40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.13), transparent); animation: sheen 6s ease-in-out infinite; }
-  .hv-glow { position:absolute; width:280px; height:280px; border-radius:50%; background: radial-gradient(circle, rgba(245,193,92,.5), transparent 65%); top:-70px; left:50%; transform: translateX(-50%); }
-  .hero-visual .hero-logo { height:158px; margin:2px auto 0; position:relative; z-index:1; }
-  .hv-i1 { position:absolute; top:16px; right:18px; opacity:.85; animation: spin 22s linear infinite; z-index:1; }
-  .hv-i2 { position:absolute; bottom:120px; left:16px; opacity:.75; animation: floaty 7s ease-in-out infinite; z-index:1; }
-  .hv-scheme { position:relative; z-index:1; }
-  .hv-scheme .scheme-svg { width:86%; height:auto; display:block; margin:6px auto 12px; }
+  /* Pass 3 (2026-10-21): object-led anatomy — generated 3D objects lead. */
+  .stage { position:relative; height:330px; margin-top:4px; }
+  .stage .obj { position:absolute; pointer-events:none; }
+  .o-brain { height:238px; left:50%; margin-left:-104px; top:40px; z-index:2; animation: bob 5.5s ease-in-out infinite; filter: drop-shadow(0 22px 26px rgba(180,130,20,.35)); }
+  .o-gears { width:252px; left:2%; top:66px; z-index:1; animation: sway 10s ease-in-out infinite; filter: drop-shadow(0 16px 20px rgba(16,24,40,.28)); }
+  .o-wrench { width:238px; right:1%; top:92px; z-index:1; animation: floaty 8s ease-in-out infinite; filter: drop-shadow(0 16px 20px rgba(16,24,40,.25)); }
+  .o-bulb { height:118px; right:19%; top:0; z-index:1; animation: bob 6.5s ease-in-out infinite; filter: drop-shadow(0 0 22px rgba(245,180,60,.55)); }
+  .o-arm { width:196px; left:11%; top:0; z-index:1; animation: floaty 9s ease-in-out infinite reverse; filter: drop-shadow(0 12px 16px rgba(16,24,40,.22)); }
+  @keyframes sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+  @media (max-width: 760px) { .stage { height:248px; } .o-brain { height:168px; margin-left:-73px; top:32px; } .o-gears { width:148px; top:58px; } .o-wrench { width:138px; top:78px; } .o-bulb { height:76px; right:7%; } .o-arm { width:118px; left:1%; } }
+  .hero-copy { text-align:center; margin-top:2px; }
+  .hero-copy .badges { justify-content:center; }
+  .hero-copy .sub { margin:0 auto; }
+  .card.buys, .card.disclosure { position:relative; }
+  .obj-wrench-sm { position:absolute; width:110px; right:6px; top:-28px; z-index:3; animation: sway 9s ease-in-out infinite; filter: drop-shadow(0 10px 14px rgba(16,24,40,.25)); pointer-events:none; }
+  .card.buys h2 { padding-right:118px; }
+  .obj-monitor { position:absolute; width:236px; right:-12px; top:-60px; z-index:3; animation: floaty 9s ease-in-out infinite; filter: drop-shadow(0 16px 22px rgba(16,24,40,.30)); pointer-events:none; }
+  .card.disclosure h2 { padding-right:180px; }
+  .clear-zone { float:right; width:228px; height:188px; margin:2px 0 10px 16px; }
+  @media (max-width: 760px) { .clear-zone { width:128px; height:112px; } }
+  @media (max-width: 760px) { .obj-monitor { width:138px; top:-38px; right:-4px; } .card.disclosure h2 { padding-right:96px; } .obj-wrench-sm { width:96px; top:-24px; } .card.buys h2 { padding-right:78px; } }
+  .cover .obj-gears-cover { position:absolute; left:16px; top:12px; height:124px; z-index:1; animation: sway 11s ease-in-out infinite; filter: drop-shadow(0 8px 12px rgba(0,0,0,.30)); pointer-events:none; }
+  .offer-head { display:grid; grid-template-columns: 1.15fr .85fr; gap:26px; align-items:center; }
+  .obj-monitor-lg { width:100%; max-width:330px; justify-self:end; animation: floaty 8.5s ease-in-out infinite; filter: drop-shadow(0 18px 24px rgba(16,24,40,.28)); }
+  @media (max-width: 760px) { .offer-head { grid-template-columns: 1fr; } .obj-monitor-lg { justify-self:center; } }
   .band { border-radius:26px; padding:26px; margin-top:32px; }
   .band-commerce { background: linear-gradient(120deg, rgba(251,119,1,.14), rgba(214,41,118,.13) 55%, rgba(150,47,191,.13)); background-size:200% 200%; animation: flow 16s linear infinite; }
   .band .tiles { margin-top:2px; }
@@ -161,9 +176,14 @@
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
   <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a class="here" href="offer.html">Offer & Disclosure</a></div>
 
+  <div class="offer-head">
+  <div class="offer-copy">
   <div class="badges"><span class="pill blue">GATE NATIONS LLC</span><span class="pill grad">OFFER &amp; DISCLOSURE</span></div>
   <h1>Offer &amp; <span class="grad">Disclosure</span></h1>
   <div class="sub">The complete offer, disclosure, and agreement text, published in the open, exactly as supplied. Two values stay bracketed as written — the catalog opening date and the Partner Term — until Mahmoud's decision locks them. Disclosure comes before any payment, always.</div>
+  </div>
+  <img class="obj-monitor-lg" src="obj-monitor.webp" alt="" aria-hidden="true">
+  </div>
   <div class="circuit" aria-hidden="true"><svg width="100%" height="20" viewBox="0 0 880 20" preserveAspectRatio="none"><path class="wire" d="M0 10 H300 l16 8 h248 l16 -8 H880" fill="none" stroke-width="2.5"/><circle class="node" cx="150" cy="10" r="4"/><circle class="node" cx="452" cy="18" r="4"/><circle class="node" cx="742" cy="10" r="4"/></svg></div>
   <div class="card part1">
     <h2>PART 1 — THE OFFER</h2>
