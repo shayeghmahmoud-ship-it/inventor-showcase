@@ -191,6 +191,13 @@
   .flag-corner { height:34px; width:auto; margin-left:auto; align-self:center; filter: drop-shadow(0 3px 6px rgba(16,24,40,.25)); animation: sway 9s ease-in-out infinite; transform-origin: left center; }
   .site-foot { margin-top:46px; padding-top:22px; border-top:1px solid #eae5d8; display:flex; flex-direction:column; align-items:center; gap:10px; }
   .sponsor-line { font-size:14px; color:#344054; font-weight:600; }
+  /* Contact rule (Mahmoud direct, 2026-10-21): the Showcase has NO
+     contact form and NO contact path of its own — contact is through
+     the holding's website only; this line says exactly that. No
+     Showcase contact email exists or will be created. */
+  .contact-line { font-size:14px; color:#344054; }
+  .contact-line a { color:#0a66c2; text-decoration:none; font-weight:700; }
+  .contact-line a:hover { text-decoration:underline; }
   .sponsor-line a { color:#0a66c2; text-decoration:none; }
   .sponsor-line a:hover { text-decoration:underline; }
   @media (max-width: 760px) { .offer-head { grid-template-columns: 1fr; } .obj-monitor-lg { justify-self:center; } }
@@ -235,7 +242,7 @@
   <!-- HOLDING-CREDIBILITY CONTENT SLOT — seats via the pen chain (Master, Legal filter, desk verification). -->
   <div class="shell-zone"></div>
 
-  <div class="site-foot"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><!--SPONSOR-SLOT--></div>
+  <div class="site-foot"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><!--SPONSOR-SLOT--><div class="contact-line">Contact is through the holding&rsquo;s website: <a href="https://gatenations.com">gatenations.com</a></div></div>
 </div>
 </body>
 </html>
