@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventor Profile (Demo) — Inventor Showcase</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background:#f7f5ef; color:#1d2939; }
+  .ribbon { height:5px; background: linear-gradient(90deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5); }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 26px 20px 64px; }
+  .staging-banner { background:#fffaeb; color:#b54708; border:1px solid #fedf89; text-align:center; padding:11px 16px; font-size:13.5px; font-weight:600; letter-spacing:.6px; border-radius:999px; }
+  .nav { display:flex; align-items:center; gap:8px; margin-top:20px; flex-wrap:wrap; }
+  .brand { font-weight:900; letter-spacing:.4px; color:#101828; font-size:16px; margin-right:auto; }
+  .brand span { color:#d62976; }
+  .nav a { color:#344054; text-decoration:none; font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:999px; background:#ffffff; border:1px solid #eae5d8; }
+  .nav a.here { color:#ffffff; background:#101828; border-color:#101828; }
+  .badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:34px; }
+  .pill { font-size:12px; font-weight:800; letter-spacing:1.2px; padding:7px 13px; border-radius:999px; }
+  .pill.blue { background:#eaf2fb; color:#0a66c2; }
+  .pill.line { background:#ffffff; color:#344054; border:1.5px solid #d0d5dd; }
+  .pill.grad { background: linear-gradient(135deg,#fa7e1e,#d62976); color:#ffffff; }
+  h1 { font-size:46px; line-height:1.08; margin:16px 0 10px; color:#101828; font-weight:900; letter-spacing:-.5px; }
+  h1 .grad { background: linear-gradient(90deg,#fa7e1e,#d62976,#962fbf); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { color:#475467; font-size:17.5px; line-height:1.6; margin: 6px 0 0; max-width: 760px; }
+  .tiles { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:26px; }
+  @media (max-width: 680px) { .tiles { grid-template-columns: 1fr; } h1 { font-size: 36px; } }
+  .tile { background:#ffffff; border:1.5px solid #eae5d8; border-radius:18px; padding:22px 22px 18px; box-shadow: 0 8px 30px rgba(16,24,40,.06); }
+  .tile.hot { border-color:#fb7701; box-shadow: 0 12px 34px rgba(251,119,1,.18); position:relative; }
+  .tile .tag { position:absolute; top:-12px; right:18px; background:#fb7701; color:#fff; font-size:11px; font-weight:800; letter-spacing:1px; padding:5px 11px; border-radius:999px; }
+  .tile .pname { font-size:13px; font-weight:800; letter-spacing:1.4px; color:#667085; }
+  .tile.hot .pname { color:#dc6803; }
+  .tile .price { font-size:52px; font-weight:900; color:#101828; line-height:1.05; margin: 4px 0 8px; }
+  .tile .price small { font-size:17px; font-weight:700; color:#667085; }
+  .tile p { font-size:14.5px; line-height:1.6; color:#475467; margin:0; }
+  .trust { text-align:center; margin-top:24px; font-size:16.5px; color:#101828; font-weight:600; }
+  .trust .mark { color:#079455; font-weight:900; }
+  .cta-row { text-align:center; margin-top:18px; }
+  .cta { display:inline-block; background: linear-gradient(135deg,#fa7e1e,#d62976); color:#ffffff; font-weight:800; font-size:17px; padding:16px 34px; border-radius:999px; text-decoration:none; box-shadow: 0 10px 30px rgba(214,41,118,.35); }
+  .highlights { display:flex; justify-content:space-between; gap:10px; margin-top:36px; flex-wrap:wrap; }
+  .hl { text-align:center; width: 150px; }
+  .hl .ring { width:76px; height:76px; margin:0 auto 9px; border-radius:50%; padding:3px; background: linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5); }
+  .hl .core { background:#ffffff; border-radius:50%; width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:900; color:#101828; }
+  .hl .lab { font-size:13px; font-weight:700; color:#344054; line-height:1.35; }
+  .card { background:#ffffff; border:1.5px solid #eae5d8; border-radius:18px; padding:24px 26px; margin-top:22px; box-shadow: 0 8px 30px rgba(16,24,40,.05); }
+  .card h2 { font-size:15px; margin:0 0 12px; color:#0a66c2; letter-spacing:1.6px; font-weight:800; }
+  .card p, .card li { font-size:16.5px; line-height:1.68; color:#1d2939; }
+  .card ol, .card ul { margin: 8px 0 8px 22px; padding: 0; }
+  .card li { margin-bottom: 10px; }
+  .card p.quote { border-left: 4px solid #d62976; padding-left: 16px; margin-left: 4px; }
+  .alert { background:#fffaeb; border-color:#fedf89; }
+  .alert h2 { color:#b54708; }
+  .product { padding: 0; overflow:hidden; }
+  .product .cover { height: 120px; background: linear-gradient(120deg,#0a66c2,#962fbf 55%,#d62976); position:relative; }
+  .product .cover .cat { position:absolute; left:22px; bottom:16px; background:rgba(255,255,255,.92); color:#101828; font-size:12px; font-weight:800; letter-spacing:1.2px; padding:6px 12px; border-radius:999px; }
+  .product .in { padding: 22px 26px 24px; }
+  .product h3 { font-size:27px; font-weight:900; color:#101828; margin:0 0 6px; }
+  .product .inst { color:#475467; font-size:15.5px; margin-bottom:12px; }
+  .chips { display:flex; gap:8px; flex-wrap:wrap; margin: 10px 0 16px; }
+  .chip { background:#f2f4f7; color:#344054; font-size:13px; font-weight:700; padding:6px 12px; border-radius:999px; }
+  .btn2 { display:inline-block; background:#101828; color:#ffffff; font-weight:700; padding:12px 22px; border-radius:999px; font-size:15px; text-decoration:none; }
+  .foot { color:#667085; font-size:13.5px; margin-top:34px; line-height:1.7; }
+  a { color:#0a66c2; }
+  /* Motion layer (DESIGN-STANDARD addendum 2026-10-21): CSS only, zero scripts. */
+  @keyframes rise { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes flow { from { background-position: 0% 0; } to { background-position: 200% 0; } }
+  @keyframes breathe { 0%,100% { box-shadow: 0 10px 30px rgba(214,41,118,.35); } 50% { box-shadow: 0 10px 44px rgba(214,41,118,.55); } }
+  @keyframes sheen { from { transform: translateX(-140%) skewX(-18deg); } to { transform: translateX(260%) skewX(-18deg); } }
+  .ribbon { background-size: 200% 100%; animation: flow 9s linear infinite; }
+  .badges, h1, .sub, .tiles, .trust, .cta-row, .highlights { animation: rise .8s cubic-bezier(.22,.8,.3,1) both; }
+  h1 { animation-delay: .10s; } .sub { animation-delay: .20s; } .tiles { animation-delay: .30s; }
+  .trust { animation-delay: .42s; } .cta-row { animation-delay: .52s; } .highlights { animation-delay: .62s; }
+  .card { animation: rise .8s cubic-bezier(.22,.8,.3,1) both; animation-timeline: view(); animation-range: entry 0% entry 55%; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(16,24,40,.10); border-color:#ddd5c0; }
+  .tile { transition: transform .25s ease, box-shadow .25s ease; }
+  .tile:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(16,24,40,.13); }
+  .tile.hot:hover { box-shadow: 0 18px 44px rgba(251,119,1,.30); }
+  .cta { animation: breathe 3.2s ease-in-out infinite; transition: transform .2s ease; }
+  .cta:hover { transform: scale(1.035); }
+  .hl .ring { transition: transform .25s ease; }
+  .hl:hover .ring { transform: translateY(-4px) scale(1.05); }
+  .product .cover::after { content:""; position:absolute; top:0; bottom:0; width:45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); animation: sheen 4.5s ease-in-out infinite; }
+  .btn2 { transition: transform .2s ease, box-shadow .2s ease; }
+  .btn2:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(16,24,40,.25); }
+  .nav a { transition: transform .2s ease; }
+  .nav a:hover { transform: translateY(-1px); }
+
+  .brand { display:flex; align-items:center; gap:10px; }
+  .logo-mark { height:46px; width:auto; }
+  .hero { position:relative; }
+  .hero > *:not(.hero-art) { position:relative; z-index:1; }
+  .hero-art { position:absolute; inset:-6px -4px; pointer-events:none; z-index:0; }
+  .hero-art svg { position:absolute; opacity:.30; }
+  .a-gear1 { left:-14px; top:6px; animation: spin 26s linear infinite; }
+  .a-gear2 { right:120px; top:2px; animation: spinr 18s linear infinite; opacity:.22 !important; }
+  .a-bulb { right:-6px; top:118px; animation: floaty 7s ease-in-out infinite; }
+  .a-chip { left:-8px; bottom:150px; animation: floaty 8s ease-in-out infinite reverse; }
+  .a-atom { right:6px; bottom:36px; animation: spin 34s linear infinite; opacity:.24 !important; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes spinr { to { transform: rotate(-360deg); } }
+  @keyframes floaty { 0%,100% { transform: translateY(-6px) rotate(-3deg); } 50% { transform: translateY(8px) rotate(3deg); } }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .hero-logo { display:block; height:104px; width:auto; margin:30px auto 2px; animation: bob 5s ease-in-out infinite; filter: drop-shadow(0 14px 22px rgba(180,130,20,.35)); }
+  .cover-gears { position:absolute; right:20px; top:14px; display:block; }
+  .cover-gears svg { position:absolute; right:0; top:0; opacity:.35; animation: spin 16s linear infinite; }
+  .cover-gears .g2 { right:64px; top:44px; animation: spinr 11s linear infinite; }
+  .circuit { margin-top:20px; }
+  .circuit .wire { stroke:#d62976; stroke-dasharray: 7 8; animation: dashmove 1.4s linear infinite; opacity:.65; }
+  .circuit .node { fill:#fb7701; animation: nodepulse 2.4s ease-in-out infinite; }
+  @keyframes dashmove { to { stroke-dashoffset: -15; } }
+  @keyframes nodepulse { 0%,100% { opacity:.45; } 50% { opacity:1; } }
+  /* Pass 2 (2026-10-21): color worlds, hero visual, display scale. */
+  h1 { font-size: clamp(46px, 6.6vw, 68px); letter-spacing:-1.2px; }
+  .sub { font-size: 19px; }
+  .card { margin-top: 28px; }
+  .tile .price { font-size: 66px; }
+  @keyframes sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+  /* Pass 4 (2026-10-21): objects return to brand atmosphere — an industries band under the hero copy; the copy leads again. */
+  .worlds { display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-end; gap:12px 26px; margin:28px auto 2px; max-width:860px; }
+  .worlds img { height:96px; width:auto; pointer-events:none; animation: bob 6s ease-in-out infinite; filter: drop-shadow(0 10px 14px rgba(16,24,40,.20)); }
+  .worlds img:nth-child(1) { height:108px; animation-delay:-.5s; }
+  .worlds img:nth-child(2) { height:100px; animation-delay:-1.6s; }
+  .worlds img:nth-child(3) { height:88px; animation-delay:-2.7s; }
+  .worlds img:nth-child(4) { height:92px; animation-delay:-.9s; }
+  .worlds img:nth-child(6) { height:106px; animation-delay:-3.4s; }
+  .worlds img:nth-child(7) { height:98px; animation-delay:-1.1s; }
+  .worlds img:nth-child(8) { height:90px; animation-delay:-2.2s; }
+  .worlds img:nth-child(9) { height:94px; animation-delay:-4.1s; }
+  .worlds .wv-brain { height:116px; animation-delay:-.2s; filter: drop-shadow(0 12px 16px rgba(180,130,20,.35)); }
+  @media (max-width: 760px) { .worlds { gap:8px 16px; } .worlds img { height:58px; } .worlds img:nth-child(1) { height:64px; } .worlds img:nth-child(2) { height:60px; } .worlds img:nth-child(3) { height:54px; } .worlds img:nth-child(4) { height:56px; } .worlds img:nth-child(6) { height:63px; } .worlds img:nth-child(7) { height:59px; } .worlds img:nth-child(8) { height:55px; } .worlds img:nth-child(9) { height:57px; } .worlds .wv-brain { height:68px; } }
+  .hero-copy { text-align:center; margin-top:2px; }
+  .hero-copy .badges { justify-content:center; }
+  .hero-copy .sub { margin:0 auto; }
+  .card.buys, .card.disclosure { position:relative; }
+  .obj-wrench-sm { position:absolute; width:110px; right:6px; top:-28px; z-index:3; animation: sway 9s ease-in-out infinite; filter: drop-shadow(0 10px 14px rgba(16,24,40,.25)); pointer-events:none; }
+  .card.buys h2 { padding-right:118px; }
+  .obj-monitor { position:absolute; width:236px; right:-12px; top:-60px; z-index:3; animation: floaty 9s ease-in-out infinite; filter: drop-shadow(0 16px 22px rgba(16,24,40,.30)); pointer-events:none; }
+  .card.disclosure h2 { padding-right:180px; }
+  .clear-zone { float:right; width:228px; height:188px; margin:2px 0 10px 16px; }
+  @media (max-width: 760px) { .clear-zone { width:128px; height:112px; } }
+  @media (max-width: 760px) { .obj-monitor { width:138px; top:-38px; right:-4px; } .card.disclosure h2 { padding-right:96px; } .obj-wrench-sm { width:96px; top:-24px; } .card.buys h2 { padding-right:78px; } }
+  .cover .obj-gears-cover { position:absolute; left:16px; top:12px; height:124px; z-index:1; animation: sway 11s ease-in-out infinite; filter: drop-shadow(0 8px 12px rgba(0,0,0,.30)); pointer-events:none; }
+  .offer-head { display:grid; grid-template-columns: 1.15fr .85fr; gap:26px; align-items:center; }
+  .obj-monitor-lg { width:100%; max-width:330px; justify-self:end; animation: floaty 8.5s ease-in-out infinite; filter: drop-shadow(0 18px 24px rgba(16,24,40,.28)); }
+  /* Pass 4 layer 2 (2026-10-21): demonstration experience surfaces. */
+  .demo-banner { background:#101828; color:#f9fafb; border-radius:14px; padding:15px 18px; font-size:14.5px; font-weight:600; line-height:1.55; margin-top:18px; display:flex; gap:12px; align-items:flex-start; }
+  .demo-tag { flex:none; background:linear-gradient(90deg,#fa7e1e,#d62976); color:#fff; font-size:11.5px; font-weight:800; letter-spacing:1.2px; padding:4px 10px; border-radius:999px; margin-top:1px; }
+  .demo-nav { display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
+  .demo-nav a { color:#344054; text-decoration:none; font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:999px; background:#fff; border:1px solid #eae5d8; }
+  .demo-nav a.here { color:#fff; background:#101828; border-color:#101828; }
+  .demo-h { font-size:34px; letter-spacing:-.6px; margin:22px 0 4px; }
+  .profile-card { display:flex; gap:20px; align-items:center; }
+  .avatar { flex:none; width:88px; height:88px; border-radius:50%; background: conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75); display:flex; align-items:center; justify-content:center; }
+  .avatar .disc { width:78px; height:78px; border-radius:50%; background:#101828; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:24px; letter-spacing:1px; border:3px solid #f7f5ef; }
+  .profile-name { font-size:21px; font-weight:800; color:#101828; line-height:1.3; }
+  .reg-chip { display:inline-block; margin-top:10px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size:13px; background:#f2f4f7; border:1px dashed #98a2b3; color:#344054; padding:7px 12px; border-radius:8px; }
+  .note-card { border-left:4px solid #0a66c2; background:#eef5fd; }
+  .badge-row { display:flex; gap:10px; flex-wrap:wrap; margin:4px 0 10px; }
+  .badge-verify { display:inline-flex; align-items:center; gap:8px; background:#ecfdf3; color:#027a48; border:1px solid #a6f4c5; font-weight:800; font-size:13.5px; letter-spacing:.4px; padding:9px 15px; border-radius:999px; }
+  .badge-verify .tick { width:19px; height:19px; border-radius:50%; background:#12b76a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
+  .caption { font-size:13.5px; color:#667085; line-height:1.6; }
+  .frame-grad { background: linear-gradient(120deg,#0a66c2,#962fbf 55%,#d62976); border-radius:14px; padding:22px 18px 10px; margin-bottom:14px; }
+  .steps { margin-top:10px; }
+  .step { display:grid; grid-template-columns:52px 1fr; gap:16px; position:relative; padding:0 0 26px; }
+  .step::before { content:""; position:absolute; left:25px; top:52px; bottom:2px; width:2px; background: linear-gradient(#fa7e1e,#d62976); opacity:.35; }
+  .step:last-child::before { display:none; }
+  .step .num { width:52px; height:52px; border-radius:50%; background: linear-gradient(135deg,#fa7e1e,#d62976); color:#fff; font-weight:800; font-size:20px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 16px rgba(214,41,118,.30); z-index:1; }
+  .step h3 { margin:12px 0 6px; font-size:18px; color:#101828; }
+  .step p { margin:0; }
+  .prot-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:8px; }
+  @media (max-width: 760px) { .prot-grid { grid-template-columns:1fr; } .profile-card { flex-direction:column; align-items:flex-start; } }
+  .prot-grid .card { margin-top:0; }
+  .prot-grid h3 { margin:0 0 8px; font-size:17.5px; color:#101828; }
+  .prot-grid p { margin:0; }
+  .prot.limit { background:#fffaeb; border:1px solid #fedf89; }
+  @media (max-width: 760px) { .offer-head { grid-template-columns: 1fr; } .obj-monitor-lg { justify-self:center; } }
+  .band { border-radius:26px; padding:26px; margin-top:32px; }
+  .band-commerce { background: linear-gradient(120deg, rgba(251,119,1,.14), rgba(214,41,118,.13) 55%, rgba(150,47,191,.13)); background-size:200% 200%; animation: flow 16s linear infinite; }
+  .band .tiles { margin-top:2px; }
+  .tiles { animation: none; }
+  .tiles .tile { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay:.36s; }
+  .tiles .tile + .tile { animation-delay:.48s; }
+  .highlights { animation: none; }
+  .hl { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay:.66s; }
+  .hl:nth-child(2) { animation-delay:.74s; }
+  .hl:nth-child(3) { animation-delay:.82s; }
+  .hl:nth-child(4) { animation-delay:.90s; }
+  .blob { position:absolute; border-radius:50%; pointer-events:none; }
+  .blob.b1 { width:340px; height:340px; left:-110px; top:20px; background: radial-gradient(circle, rgba(245,193,92,.55), transparent 65%); animation: drift 17s ease-in-out infinite; }
+  .blob.b2 { width:300px; height:300px; right:-90px; top:330px; background: radial-gradient(circle, rgba(214,41,118,.34), transparent 65%); animation: drift 21s ease-in-out infinite reverse; }
+  @keyframes drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,22px); } }
+  .product { background: linear-gradient(165deg,#101828,#16233f 55%,#33124d); border-color:#26324f; }
+  .product h3 { color:#ffffff; font-size:32px; }
+  .product .inst { color:#a9bce0; }
+  .product .cover { height:158px; }
+  .cover .scheme-svg { position:absolute; right:16px; top:12px; height:134px; width:auto; }
+  .cover-gears { left:22px; right:auto; }
+  .cover-gears svg { left:0; right:auto; }
+  .cover-gears .g2 { left:62px; right:auto; top:48px; }
+  .product .chip { background: rgba(255,255,255,.13); color:#eef2ff; }
+  .card.buys { border-top: 5px solid #0a66c2; }
+  .card.part1 { border-top: 5px solid #fb7701; }
+  .card.part2 { border-top: 5px solid #dc6803; }
+  .card.part3 { border-top: 5px solid #0a66c2; }
+  @media (prefers-reduced-motion: reduce) { *, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="ribbon"></div>
+<div class="wrap">
+  <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
+  <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a><a class="here" href="profile-demo.html">Experience — Demo</a></div>
+
+  <div class="demo-banner"><span class="demo-tag">DEMO</span><span>DEMONSTRATION PROFILE — SAMPLE ONLY. This page demonstrates how a verified founding listing will present its inventor. It is not a live listing, and no registration behind it exists.</span></div>
+  <div class="demo-nav"><a class="here" href="profile-demo.html">Inventor profile</a><a href="present-demo.html">Present your product</a><a href="protections-demo.html">Protections</a></div>
+  <h1 class="demo-h">Inventor profile <span class="grad">(demonstration)</span></h1>
+  <div class="card">
+    <div class="profile-card">
+      <div class="avatar" aria-hidden="true"><div class="disc">AJ</div></div>
+      <div>
+        <div class="profile-name">ADTEC JTM — Advanced Technology College, Malaysia</div>
+        <div><span class="reg-chip">Registration ID: SAMPLE-0000 — demonstration number. No real registration exists behind this page.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card note-card">
+      <p>On a live listing, the inventor is shown under a platform identity. The legal identity stays with the company and is shown to a verified investor only at deal stage, inside the room.</p>
+  </div>
+  <div class="card">
+    <h2>THE INVENTION</h2>
+    <div class="frame-grad"><svg class="scheme-svg" viewBox="0 0 300 150" fill="none" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="124" x2="282" y2="124" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="3 7" opacity=".35"/><path d="M64 124 L78 66 Q79 60 86 60 L138 60 Q145 60 146 66 L158 124 Z" fill="rgba(255,255,255,.07)" stroke="#ffffff" stroke-width="3"/><path d="M76 84 Q110 76 148 84" stroke="#f5c15c" stroke-width="3"/><path d="M84 94 l6 -6 M100 96 l6 -6 M118 96 l6 -6 M134 94 l6 -6" stroke="#f5c15c" stroke-width="2.5" opacity=".8"/><line x1="196" y1="8" x2="128" y2="66" stroke="#f5c15c" stroke-width="6"/><circle cx="120" cy="74" r="30" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="4 7" opacity=".45"/><path d="M120 74 q-16 16 -30 18 M120 74 q-2 20 -12 30 M120 74 q14 14 12 28" stroke="#f5c15c" stroke-width="4.5"/><circle cx="120" cy="74" r="8" fill="#f5c15c"/><path d="M214 124 q0 -18 4 -30" stroke="#7ee2a8" stroke-width="3.5"/><path d="M218 100 q-16 -4 -20 -18 q16 2 20 18" fill="#7ee2a8" opacity=".85"/><path d="M219 96 q4 -16 18 -20 q0 16 -18 20" fill="#7ee2a8" opacity=".7"/></svg></div>
+      <p><strong>POLYBAG SOIL ROTOR V2 — a 4-in-1 soil tilling tool for fertigation farming (SK-5 and mild steel; 22.5 mm rotor blades; a shaft compatible with hand drills and lawn mowers). Field: Agriculture.</strong></p>
+      <p class="caption">NAMED INVENTORS — SOURCE CATALOGUE<br>TC Azuan Failani Bin Ariffin and eight colleagues, JTM Advanced Technology College (ADTEC JTM).</p>
+  </div>
+  <div class="card">
+    <h2>VERIFICATION BADGES</h2>
+    <div class="badge-row"><span class="badge-verify"><span class="tick">✓</span>GRANTED PATENT — VERIFIED</span><span class="badge-verify"><span class="tick">✓</span>PROOF OF FUNCTION — VERIFIED</span></div>
+      <p class="caption">These are sample badges. A live listing earns them only after its two checks pass — verification of the granted patent and of the proof-of-function documents. Those two checks, and nothing beyond them, are what "verified" means here. This demonstration is built from a public exhibition catalogue entry; the catalogue does not state a patent number or status, so this sample profile itself is NOT a verified listing.</p>
+  </div>
+
+</div>
+</body>
+</html>
