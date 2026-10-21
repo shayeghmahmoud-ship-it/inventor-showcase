@@ -174,6 +174,12 @@
   .prot-grid p { margin:0; }
   .prot.limit { background:#fffaeb; border:1px solid #fedf89; }
   .card.limit { background:#fffaeb; border:1px solid #fedf89; }
+  /* Design wave (2026-10-21): flag corner, footer attribution zone, sponsor-line seat (held for the Legal filter). */
+  .flag-corner { height:34px; width:auto; margin-left:auto; align-self:center; filter: drop-shadow(0 3px 6px rgba(16,24,40,.25)); animation: sway 9s ease-in-out infinite; transform-origin: left center; }
+  .site-foot { margin-top:46px; padding-top:22px; border-top:1px solid #eae5d8; display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .sponsor-line { font-size:14px; color:#344054; font-weight:600; }
+  .sponsor-line a { color:#0a66c2; text-decoration:none; }
+  .sponsor-line a:hover { text-decoration:underline; }
   @media (max-width: 760px) { .offer-head { grid-template-columns: 1fr; } .obj-monitor-lg { justify-self:center; } }
   .band { border-radius:26px; padding:26px; margin-top:32px; }
   .band-commerce { background: linear-gradient(120deg, rgba(251,119,1,.14), rgba(214,41,118,.13) 55%, rgba(150,47,191,.13)); background-size:200% 200%; animation: flow 16s linear infinite; }
@@ -210,7 +216,7 @@
 <div class="ribbon"></div>
 <div class="wrap">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
-  <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a><a href="how-it-works.html">How it works</a><a href="ownership.html">Ownership</a><a href="documents.html">Your documents</a><a class="here" href="profile-demo.html">Experience — Demo</a></div>
+  <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a href="offer.html">Offer & Disclosure</a><a href="how-it-works.html">How it works</a><a href="ownership.html">Ownership</a><a href="documents.html">Your documents</a><a class="here" href="profile-demo.html">Experience — Demo</a><img class="flag-corner" src="flag-usa.webp" alt=""></div>
 
   <div class="demo-banner"><span class="demo-tag">DEMO</span><span>DEMONSTRATION — SAMPLE ONLY. How a founding inventor presents a product on the Inventor Showcase. No live submission exists behind this page.</span></div>
   <div class="demo-nav"><a href="profile-demo.html">Inventor profile</a><a class="here" href="present-demo.html">Present your product</a><a href="protections-demo.html">Protections</a></div>
@@ -225,6 +231,7 @@
   </div>
   </div>
 
+  <div class="site-foot"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><!--SPONSOR-SLOT--></div>
 </div>
 </body>
 </html>
