@@ -84,6 +84,31 @@
   .btn2:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(16,24,40,.25); }
   .nav a { transition: transform .2s ease; }
   .nav a:hover { transform: translateY(-1px); }
+
+  .brand { display:flex; align-items:center; gap:10px; }
+  .logo-mark { height:46px; width:auto; }
+  .hero { position:relative; }
+  .hero > *:not(.hero-art) { position:relative; z-index:1; }
+  .hero-art { position:absolute; inset:-6px -4px; pointer-events:none; z-index:0; }
+  .hero-art svg { position:absolute; opacity:.30; }
+  .a-gear1 { left:-14px; top:6px; animation: spin 26s linear infinite; }
+  .a-gear2 { right:120px; top:2px; animation: spinr 18s linear infinite; opacity:.22 !important; }
+  .a-bulb { right:-6px; top:118px; animation: floaty 7s ease-in-out infinite; }
+  .a-chip { left:-8px; bottom:150px; animation: floaty 8s ease-in-out infinite reverse; }
+  .a-atom { right:6px; bottom:36px; animation: spin 34s linear infinite; opacity:.24 !important; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes spinr { to { transform: rotate(-360deg); } }
+  @keyframes floaty { 0%,100% { transform: translateY(-6px) rotate(-3deg); } 50% { transform: translateY(8px) rotate(3deg); } }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .hero-logo { display:block; height:104px; width:auto; margin:30px auto 2px; animation: bob 5s ease-in-out infinite; filter: drop-shadow(0 14px 22px rgba(180,130,20,.35)); }
+  .cover-gears { position:absolute; right:20px; top:14px; display:block; }
+  .cover-gears svg { position:absolute; right:0; top:0; opacity:.35; animation: spin 16s linear infinite; }
+  .cover-gears .g2 { right:64px; top:44px; animation: spinr 11s linear infinite; }
+  .circuit { margin-top:20px; }
+  .circuit .wire { stroke:#d62976; stroke-dasharray: 7 8; animation: dashmove 1.4s linear infinite; opacity:.65; }
+  .circuit .node { fill:#fb7701; animation: nodepulse 2.4s ease-in-out infinite; }
+  @keyframes dashmove { to { stroke-dashoffset: -15; } }
+  @keyframes nodepulse { 0%,100% { opacity:.45; } 50% { opacity:1; } }
   @media (prefers-reduced-motion: reduce) { *, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
@@ -91,11 +116,12 @@
 <div class="ribbon"></div>
 <div class="wrap">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
-  <div class="nav"><div class="brand">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a class="here" href="offer.html">Offer & Disclosure</a></div>
+  <div class="nav"><div class="brand"><img class="logo-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a href="sample.html">Sample listing</a><a class="here" href="offer.html">Offer & Disclosure</a></div>
 
   <div class="badges"><span class="pill blue">GATE NATIONS LLC</span><span class="pill grad">OFFER &amp; DISCLOSURE</span></div>
   <h1>Offer &amp; <span class="grad">Disclosure</span></h1>
   <div class="sub">The complete offer, disclosure, and agreement text, published in the open, exactly as supplied. Two values stay bracketed as written — the catalog opening date and the Partner Term — until Mahmoud's decision locks them. Disclosure comes before any payment, always.</div>
+  <div class="circuit" aria-hidden="true"><svg width="100%" height="20" viewBox="0 0 880 20" preserveAspectRatio="none"><path class="wire" d="M0 10 H300 l16 8 h248 l16 -8 H880" fill="none" stroke-width="2.5"/><circle class="node" cx="150" cy="10" r="4"/><circle class="node" cx="452" cy="18" r="4"/><circle class="node" cx="742" cy="10" r="4"/></svg></div>
   <div class="card">
     <h2>PART 1 — THE OFFER</h2>
       <p>Subject: Founding registration is open — Inventor Showcase, first publication catalog (granted patents only)</p>

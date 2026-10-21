@@ -39,7 +39,17 @@
   /* Motion layer (DESIGN-STANDARD addendum 2026-10-21): CSS only, zero scripts. */
   @keyframes s-rise { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
   @keyframes s-flow { from { background-position: 0% 0; } to { background-position: 200% 0; } }
+  @keyframes s-spin { to { transform: rotate(360deg); } }
+  @keyframes s-floaty { 0%,100% { transform: translateY(-5px) rotate(-3deg); } 50% { transform: translateY(7px) rotate(3deg); } }
+  @keyframes s-glow { 0%,100% { box-shadow: 0 0 0 rgba(251,119,1,0); } 50% { box-shadow: 0 10px 34px rgba(251,119,1,.22); } }
   .ribbon { background-size: 200% 100%; animation: s-flow 9s linear infinite; }
+  .site-chrome { position: relative; }
+  .site-nav .brand { display:flex; align-items:center; gap:10px; }
+  .brand-mark { height:42px; width:auto; }
+  .chrome-art svg { position:absolute; pointer-events:none; opacity:.26; }
+  .chrome-art .c-gear { right:6px; top:64px; animation: s-spin 24s linear infinite; }
+  .chrome-art .c-chip { right:120px; top:74px; animation: s-floaty 8s ease-in-out infinite; }
+  .photo { animation: s-glow 4.2s ease-in-out infinite; }
   .sample-banner, .platform, h1, .sub, .serial { animation: s-rise .8s cubic-bezier(.22,.8,.3,1) both; }
   .platform { animation-delay: .08s; } h1 { animation-delay: .16s; } .sub { animation-delay: .24s; } .serial { animation-delay: .32s; }
   .card { animation: s-rise .8s cubic-bezier(.22,.8,.3,1) both; animation-timeline: view(); animation-range: entry 0% entry 55%; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
@@ -52,8 +62,8 @@
 <body>
 <div class="ribbon"></div><div class="site-chrome">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
-  <div class="site-nav"><div class="brand">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a class="here" href="sample.html">Sample listing</a><a href="offer.html">Offer &amp; Disclosure</a></div>
-</div>
+  <div class="site-nav"><div class="brand"><img class="brand-mark" src="logo-brain.png" alt="">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a class="here" href="sample.html">Sample listing</a><a href="offer.html">Offer &amp; Disclosure</a></div>
+<span class="chrome-art" aria-hidden="true"><svg class="c-gear" width="64" height="64" viewBox="0 0 100 100" fill="none" stroke="#e8a33d" stroke-width="6" stroke-linecap="round" aria-hidden="true"><circle cx="50" cy="50" r="25"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(0 50 50)"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(45 50 50)"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(90 50 50)"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(135 50 50)"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(180 50 50)"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(225 50 50)"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(270 50 50)"/><rect x="45.5" y="4" width="9" height="19" rx="3" fill="#e8a33d" transform="rotate(315 50 50)"/><circle cx="50" cy="50" r="8.5"/></svg><svg class="c-chip" width="44" height="44" viewBox="0 0 100 100" fill="none" stroke="#0a66c2" stroke-width="6" stroke-linecap="round" aria-hidden="true"><rect x="29" y="29" width="42" height="42" rx="8"/><rect x="43" y="43" width="14" height="14" rx="3"/><path d="M36 29 V15 M50 29 V15 M64 29 V15 M36 85 V71 M50 85 V71 M64 85 V71 M29 36 H15 M29 50 H15 M29 64 H15 M85 36 H71 M85 50 H71 M85 64 H71"/></svg></span></div>
 
 <div class="wrap">
 
