@@ -109,6 +109,49 @@
   .circuit .node { fill:#fb7701; animation: nodepulse 2.4s ease-in-out infinite; }
   @keyframes dashmove { to { stroke-dashoffset: -15; } }
   @keyframes nodepulse { 0%,100% { opacity:.45; } 50% { opacity:1; } }
+  /* Pass 2 (2026-10-21): color worlds, hero visual, display scale. */
+  h1 { font-size: clamp(46px, 6.6vw, 68px); letter-spacing:-1.2px; }
+  .sub { font-size: 19px; }
+  .card { margin-top: 28px; }
+  .tile .price { font-size: 66px; }
+  .hero-grid { display:grid; grid-template-columns: 1.25fr .95fr; gap:30px; align-items:center; margin-top:24px; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero-visual { position:relative; border-radius:26px; padding:26px 20px 8px; background: linear-gradient(160deg,#16233f,#101828 55%,#33124d); box-shadow: 0 24px 50px rgba(16,24,40,.28); overflow:hidden; animation: rise .8s cubic-bezier(.2,.7,.2,1) .18s both; }
+  .hero-visual::after { content:""; position:absolute; top:0; bottom:0; width:40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.13), transparent); animation: sheen 6s ease-in-out infinite; }
+  .hv-glow { position:absolute; width:280px; height:280px; border-radius:50%; background: radial-gradient(circle, rgba(245,193,92,.5), transparent 65%); top:-70px; left:50%; transform: translateX(-50%); }
+  .hero-visual .hero-logo { height:158px; margin:2px auto 0; position:relative; z-index:1; }
+  .hv-i1 { position:absolute; top:16px; right:18px; opacity:.85; animation: spin 22s linear infinite; z-index:1; }
+  .hv-i2 { position:absolute; bottom:120px; left:16px; opacity:.75; animation: floaty 7s ease-in-out infinite; z-index:1; }
+  .hv-scheme { position:relative; z-index:1; }
+  .hv-scheme .scheme-svg { width:86%; height:auto; display:block; margin:6px auto 12px; }
+  .band { border-radius:26px; padding:26px; margin-top:32px; }
+  .band-commerce { background: linear-gradient(120deg, rgba(251,119,1,.14), rgba(214,41,118,.13) 55%, rgba(150,47,191,.13)); background-size:200% 200%; animation: flow 16s linear infinite; }
+  .band .tiles { margin-top:2px; }
+  .tiles { animation: none; }
+  .tiles .tile { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay:.36s; }
+  .tiles .tile + .tile { animation-delay:.48s; }
+  .highlights { animation: none; }
+  .hl { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay:.66s; }
+  .hl:nth-child(2) { animation-delay:.74s; }
+  .hl:nth-child(3) { animation-delay:.82s; }
+  .hl:nth-child(4) { animation-delay:.90s; }
+  .blob { position:absolute; border-radius:50%; pointer-events:none; }
+  .blob.b1 { width:340px; height:340px; left:-110px; top:20px; background: radial-gradient(circle, rgba(245,193,92,.55), transparent 65%); animation: drift 17s ease-in-out infinite; }
+  .blob.b2 { width:300px; height:300px; right:-90px; top:330px; background: radial-gradient(circle, rgba(214,41,118,.34), transparent 65%); animation: drift 21s ease-in-out infinite reverse; }
+  @keyframes drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,22px); } }
+  .product { background: linear-gradient(165deg,#101828,#16233f 55%,#33124d); border-color:#26324f; }
+  .product h3 { color:#ffffff; font-size:32px; }
+  .product .inst { color:#a9bce0; }
+  .product .cover { height:158px; }
+  .cover .scheme-svg { position:absolute; right:16px; top:12px; height:134px; width:auto; }
+  .cover-gears { left:22px; right:auto; }
+  .cover-gears svg { left:0; right:auto; }
+  .cover-gears .g2 { left:62px; right:auto; top:48px; }
+  .product .chip { background: rgba(255,255,255,.13); color:#eef2ff; }
+  .card.buys { border-top: 5px solid #0a66c2; }
+  .card.part1 { border-top: 5px solid #fb7701; }
+  .card.part2 { border-top: 5px solid #dc6803; }
+  .card.part3 { border-top: 5px solid #0a66c2; }
   @media (prefers-reduced-motion: reduce) { *, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
@@ -122,7 +165,7 @@
   <h1>Offer &amp; <span class="grad">Disclosure</span></h1>
   <div class="sub">The complete offer, disclosure, and agreement text, published in the open, exactly as supplied. Two values stay bracketed as written — the catalog opening date and the Partner Term — until Mahmoud's decision locks them. Disclosure comes before any payment, always.</div>
   <div class="circuit" aria-hidden="true"><svg width="100%" height="20" viewBox="0 0 880 20" preserveAspectRatio="none"><path class="wire" d="M0 10 H300 l16 8 h248 l16 -8 H880" fill="none" stroke-width="2.5"/><circle class="node" cx="150" cy="10" r="4"/><circle class="node" cx="452" cy="18" r="4"/><circle class="node" cx="742" cy="10" r="4"/></svg></div>
-  <div class="card">
+  <div class="card part1">
     <h2>PART 1 — THE OFFER</h2>
       <p>Subject: Founding registration is open — Inventor Showcase, first publication catalog (granted patents only)</p>
       <p>You hold a granted patent. Gate Nations LLC, a United States company, is opening the founding registration for its Inventor Showcase: a showcase built only for granted-patent inventions, published in a first catalog, with a serial-numbered, dated registry entry for every registered invention, and a closed room where identity- and capital-verified investors may request contact. Contact opens only when a verified investor asks — never the reverse.</p>
@@ -141,7 +184,7 @@
       <p>What we do NOT promise: no investor, license, sale, or income is promised or implied. Most registered inventions will not be commercialized. Please read the disclosure below before paying anything. If your invention's granted patent or proof-of-function cannot be verified, your payment is refunded in full and no listing is made.</p>
       <p>Payment is made only through the company's own payment link, which accompanies this offer when registration opens for your cohort. We never ask for payment by any other route.</p>
   </div>
-  <div class="card">
+  <div class="card part2">
     <h2>PART 2 — DISCLOSURE (ATTACHED TO THE OFFER, BEFORE ANY PAYMENT)</h2>
       <ul>
       <li>The Inventor Showcase is an invention showcase and introduction service operated by Gate Nations LLC. It is not a broker, agent, or guarantor of any transaction, and it is not built yet: founding registration reserves a place in its first publication catalog, which will open on or before [DATE PENDING MAHMOUD'S DECISION: 1 March 2027], or your payment is refunded in full.</li>
@@ -160,7 +203,7 @@
       <li>Statistical disclosure, in the form required of invention promoters (35 U.S.C. §297 discipline), from this company's actual records at the time of this offer: inventions evaluated — 0; customers registered — 0; customers known to have received a license agreement through this service — 0; customers known to have made a net profit through this service — 0; prior affiliated invention-promotion companies — none. These figures are zero because this service has not launched. They will be updated truthfully as records exist.</li>
       </ul>
   </div>
-  <div class="card">
+  <div class="card part3">
     <h2>PART 3 — AGREEMENT OPERATIVE TEXT</h2>
       <p>(the clause the package text stands on; verbatim from the Legal Chamber's final opinion, 21 October 2026)</p>
       <ol>
