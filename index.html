@@ -61,6 +61,30 @@
   .btn2 { display:inline-block; background:#101828; color:#ffffff; font-weight:700; padding:12px 22px; border-radius:999px; font-size:15px; text-decoration:none; }
   .foot { color:#667085; font-size:13.5px; margin-top:34px; line-height:1.7; }
   a { color:#0a66c2; }
+  /* Motion layer (DESIGN-STANDARD addendum 2026-10-21): CSS only, zero scripts. */
+  @keyframes rise { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes flow { from { background-position: 0% 0; } to { background-position: 200% 0; } }
+  @keyframes breathe { 0%,100% { box-shadow: 0 10px 30px rgba(214,41,118,.35); } 50% { box-shadow: 0 10px 44px rgba(214,41,118,.55); } }
+  @keyframes sheen { from { transform: translateX(-140%) skewX(-18deg); } to { transform: translateX(260%) skewX(-18deg); } }
+  .ribbon { background-size: 200% 100%; animation: flow 9s linear infinite; }
+  .badges, h1, .sub, .tiles, .trust, .cta-row, .highlights { animation: rise .8s cubic-bezier(.22,.8,.3,1) both; }
+  h1 { animation-delay: .10s; } .sub { animation-delay: .20s; } .tiles { animation-delay: .30s; }
+  .trust { animation-delay: .42s; } .cta-row { animation-delay: .52s; } .highlights { animation-delay: .62s; }
+  .card { animation: rise .8s cubic-bezier(.22,.8,.3,1) both; animation-timeline: view(); animation-range: entry 0% entry 55%; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(16,24,40,.10); border-color:#ddd5c0; }
+  .tile { transition: transform .25s ease, box-shadow .25s ease; }
+  .tile:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(16,24,40,.13); }
+  .tile.hot:hover { box-shadow: 0 18px 44px rgba(251,119,1,.30); }
+  .cta { animation: breathe 3.2s ease-in-out infinite; transition: transform .2s ease; }
+  .cta:hover { transform: scale(1.035); }
+  .hl .ring { transition: transform .25s ease; }
+  .hl:hover .ring { transform: translateY(-4px) scale(1.05); }
+  .product .cover::after { content:""; position:absolute; top:0; bottom:0; width:45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); animation: sheen 4.5s ease-in-out infinite; }
+  .btn2 { transition: transform .2s ease, box-shadow .2s ease; }
+  .btn2:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(16,24,40,.25); }
+  .nav a { transition: transform .2s ease; }
+  .nav a:hover { transform: translateY(-1px); }
+  @media (prefers-reduced-motion: reduce) { *, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>

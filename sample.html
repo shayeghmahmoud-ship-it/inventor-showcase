@@ -35,10 +35,22 @@
   .site-nav a { color:#344054; text-decoration:none; font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:999px; background:#ffffff; border:1px solid #eae5d8; }
   .site-nav a.here { color:#ffffff; background:#101828; border-color:#101828; }
 </style>
+<style>
+  /* Motion layer (DESIGN-STANDARD addendum 2026-10-21): CSS only, zero scripts. */
+  @keyframes s-rise { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes s-flow { from { background-position: 0% 0; } to { background-position: 200% 0; } }
+  .ribbon { background-size: 200% 100%; animation: s-flow 9s linear infinite; }
+  .sample-banner, .platform, h1, .sub, .serial { animation: s-rise .8s cubic-bezier(.22,.8,.3,1) both; }
+  .platform { animation-delay: .08s; } h1 { animation-delay: .16s; } .sub { animation-delay: .24s; } .serial { animation-delay: .32s; }
+  .card { animation: s-rise .8s cubic-bezier(.22,.8,.3,1) both; animation-timeline: view(); animation-range: entry 0% entry 55%; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(16,24,40,.10); border-color:#ddd5c0; }
+  .photo { transition: transform .25s ease; }
+  .photo:hover { transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { *, *::after { animation: none !important; transition: none !important; } }
+</style>
 </head>
 <body>
-<div class="ribbon"></div>
-<div class="site-chrome">
+<div class="ribbon"></div><div class="site-chrome">
   <div class="staging-banner">STAGING PREVIEW — PRE-PUBLICATION DRAFT. NOT THE PUBLIC SITE.</div>
   <div class="site-nav"><div class="brand">INVENTOR <span>SHOWCASE</span></div><a href="index.html">Home</a><a class="here" href="sample.html">Sample listing</a><a href="offer.html">Offer &amp; Disclosure</a></div>
 </div>
